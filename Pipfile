@@ -1,0 +1,16 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+boto = "*"
+pandas = "*"
+s3fs = "*"
+pyarrow = "*"
+fastparquet = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"
