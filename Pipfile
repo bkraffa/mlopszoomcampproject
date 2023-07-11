@@ -12,7 +12,6 @@ fastparquet = "*"
 scikit-learn = "*"
 mlflow = "*"
 geopy = "*"
-xgboost = "*"
 
 [dev-packages]
 ipykernel = "*"

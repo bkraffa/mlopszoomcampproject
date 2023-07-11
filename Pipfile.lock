@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "ec04d4b9d0b844374b62d40764ffd043484752f2d1a060de0afca293d16cd425"
+            "sha256": "49fdae5c5f7b81e8f1f2e38e831a9043954928f60f9d2679cc5d2022c8ae9898"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -1594,18 +1594,6 @@
             ],
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4'",
             "version": "==1.15.0"
-        },
-        "xgboost": {
-            "hashes": [
-                "sha256:127cf1f5e2ec25cd41429394c6719b87af1456ce583e89f0bffd35d02ad18bcb",
-                "sha256:1c527554a400445e0c38186039ba1a00425dcdb4e40b37eed0e74cb39a159c47",
-                "sha256:281c3c6f4fbed2d36bf95cd02a641afa95e72e9abde70064056da5e76233e8df",
-                "sha256:4c34675b4d2678c624ddde5d45361e7e16046923e362e4e609b88353e6b87124",
-                "sha256:59b4b366d2cafc7f645e87d897983a5b59be02876194b1d213bd8d8b811d8ce8",
-                "sha256:b1d5db49b199152d62bd9217c98760207d3de86d2b9d243260c573ffe638f80a"
-            ],
-            "index": "pypi",
-            "version": "==1.7.6"
         },
         "yarl": {
             "hashes": [
