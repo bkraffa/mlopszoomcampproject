@@ -4,7 +4,6 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-boto = "*"
 pandas = "*"
 s3fs = "*"
 pyarrow = "*"
@@ -12,6 +11,8 @@ fastparquet = "*"
 scikit-learn = "*"
 mlflow = "*"
 geopy = "*"
+psycopg2-binary = "*"
+boto3 = "*"
 
 [dev-packages]
 ipykernel = "*"
