@@ -10,9 +10,9 @@ pyarrow = "*"
 fastparquet = "*"
 scikit-learn = "*"
 mlflow = "*"
-geopy = "*"
 psycopg2-binary = "*"
 boto3 = "*"
+prefect = "*"
 
 [dev-packages]
 ipykernel = "*"
