@@ -1,0 +1,28 @@
+name: mlops_zoomcamp_project
+prefect-version: 2.10.21
+
+build:
+
+push:
+
+pull:
+-prefect.projects.steps.git_clone_project:
+  repository: https://github.com/bkraffa/mlopszoomcampproject.git
+  branch: main
+  access_token:
+deployments:
+- name: trip_prediction
+  version:
+  tags: []
+  description:
+  entrypoint: orchestrate.py:main_flow
+  parameters: {}
+  work_pool:
+    name: mlopszoomcamp_pool
+    work_queue_name:
+    job_variables: {}
+  schedule:
+  pull:
+  - prefect.deployments.steps.git_clone:
+      repository: https://github.com/bkraffa/mlopszoomcampproject.git
+      branch: main

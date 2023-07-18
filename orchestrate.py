@@ -1,4 +1,4 @@
-import s3fs
+#import s3fs
 import pandas as pd
 import mlflow
 import joblib
@@ -67,7 +67,7 @@ def calculate_mse(model,X_test,y_test):
 def main_flow():
     warnings.filterwarnings("ignore")    
 
-    TRACKING_SERVER_HOST = "ec2-18-117-182-109.us-east-2.compute.amazonaws.com" #change if ec2 instance is reinitiated
+    TRACKING_SERVER_HOST = "ec2-3-19-77-42.us-east-2.compute.amazonaws.com" #change if ec2 instance is reinitiated
     mlflow.set_tracking_uri(f"http://{TRACKING_SERVER_HOST}:5000")
     mlflow.set_experiment("chicago-bike-share")
 
