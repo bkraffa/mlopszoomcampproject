@@ -13,6 +13,7 @@ mlflow = "*"
 psycopg2-binary = "*"
 boto3 = "*"
 prefect = "*"
+flask = "*"
 
 [dev-packages]
 ipykernel = "*"
