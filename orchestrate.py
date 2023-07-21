@@ -38,15 +38,15 @@ def training_preparation(df):
 
     dv = DictVectorizer()
 
-    pathlib.Path('models').mkdir(exist_ok=True)
-    with open('models/preprocessor.b', "wb") as f_out:
-            pickle.dump(dv,f_out)
-    mlflow.log_artifact('models/preprocessor.b',artifact_path="preprocessor")
-
     train_dicts = X_train[categorical].to_dict(orient='records')
     X_train = dv.fit_transform(train_dicts)
     test_dicts = X_test[categorical ].to_dict(orient='records')
     X_test = dv.transform(test_dicts)
+
+    pathlib.Path('models').mkdir(exist_ok=True)
+    with open('models/preprocessor.b', "wb") as f_out:
+            pickle.dump(dv,f_out)
+    mlflow.log_artifact('models/preprocessor.b',artifact_path="dv_preprocessor")
 
     return X_train, X_test, y_train, y_test  
 
@@ -67,7 +67,7 @@ def calculate_mse(model,X_test,y_test):
 def main_flow():
     warnings.filterwarnings("ignore")    
 
-    TRACKING_SERVER_HOST = "ec2-3-19-77-42.us-east-2.compute.amazonaws.com" #change if ec2 instance is reinitiated
+    TRACKING_SERVER_HOST = "ec2-18-217-76-61.us-east-2.compute.amazonaws.com" #change if ec2 instance is reinitiated
     mlflow.set_tracking_uri(f"http://{TRACKING_SERVER_HOST}:5000")
     mlflow.set_experiment("chicago-bike-share")
 
