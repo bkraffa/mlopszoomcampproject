@@ -3,7 +3,7 @@ import mlflow
 from flask import Flask, request, jsonify
 
 
-logged_model = 's3://mlflow-models-bruno/1/eff4f74e811840319846bd6f73cc3d73/artifacts/model'
+logged_model = 's3://mlflow-models-bruno/1/1485ca1c181a45e1afa6a4d265225bb2/artifacts/model'
 model = mlflow.pyfunc.load_model(logged_model)
 
 with open ('models/preprocessor.b', 'rb') as file:

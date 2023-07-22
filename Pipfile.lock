@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "2336c0497b77b606bde2faca2b11cb06b39ad0730525e526cbffce16a49487a1"
+            "sha256": "65f9b759dae5e409028c762d767daf7fc91d38d42a9235bbe4d9d9583e6f4443"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -731,7 +731,7 @@
                 "sha256:9dcc4547dbb1cb284accfb15ab5667a0e5d1881cc443e0677b4882a4067a807e",
                 "sha256:e0a968b5ba15f8a328fdfd7ab1fcb5af4470c28aaf7e55df02a99bc13138e6e8"
             ],
-            "markers": "platform_system != 'Windows'",
+            "index": "pypi",
             "version": "==20.1.0"
         },
         "h11": {
@@ -813,7 +813,7 @@
                 "sha256:31351a702a408a9e7595a8fc6150fc3f43bb6bf7e319770cbc0db9df9437e852",
                 "sha256:6088930bfe239f0e6710546ab9c19c9ef35e29792895fed6e6e31a023a182a61"
             ],
-            "markers": "platform_system != 'Windows'",
+            "markers": "python_version >= '3.7'",
             "version": "==3.1.2"
         },
         "jmespath": {
@@ -1083,11 +1083,11 @@
         },
         "mlflow": {
             "hashes": [
-                "sha256:8d7c8aa8030f82fe6e707dc2f7f2d0c16479f1f1b76feb4b9ea948d94135bc84",
-                "sha256:ecd5258b688a4cb1ef5282b19da6d6832b9c0d66a827a4dcf5779d90a0dff247"
+                "sha256:981fcb3480ca7383b47e22b5e4c726d21e2c87fb4035e5a1b57574736c665576",
+                "sha256:f992ae8ea9c73502344baf48c4ec447aa9efbfa8965bc090868e6163234f4eb0"
             ],
             "index": "pypi",
-            "version": "==2.4"
+            "version": "==2.5.0"
         },
         "numpy": {
             "hashes": [
