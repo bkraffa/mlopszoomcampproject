@@ -1,6 +1,6 @@
-# mlops-zoomcamp-project
+# mlops-zoomcamp-project Bruno Caraffa
 
-## How to deploy the model:
+## How to train and deploy the model on aws:
 * 1 Start mlflow for model and artifacts registry:
 
 #### 1.1) mlflow server -h 0.0.0.0 -p 5000 --backend-store-uri postgresql://mlflow:flamengo@mlflow-database.cuownlz1peeo.us-east-2.rds.amazonaws.com:5432/mlflow_db --default-artifact-root s3://mlflow-models-bruno
@@ -19,6 +19,6 @@
 
 #### 3.2) docker run -it -p 9696:9696 mlopszoomcamp
 
-* 4 Test the deployed app:
+* 4 Test the deployed app (to test the prediction running on aws, parameters can be edited on the hard coded ride dictionary on test_prediction.py):
 
-#### 4.1) python test_prediction.py (to test the prediction running on aws, parameters can be edited on the hard coded ride dictionary on test_prediction.py )
+#### 4.1) python test_prediction.py 
