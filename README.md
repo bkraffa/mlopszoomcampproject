@@ -1,5 +1,13 @@
 # mlops-zoomcamp-project Bruno Caraffa
 
+This application leverages data from over 3 million trips in Chicago's bike-sharing system to accurately predict trip durations. It achieves this by considering four essential attributes: the pickup station, dropoff station, user type (member or casual), and bike type (electric or classic).
+
+The vast dataset provides a robust foundation for the predictive model, allowing for accurate estimations of trip durations based on the specific combination of attributes. By analyzing historical trip patterns, the application can deliver reliable predictions to enhance the overall user experience and optimize bike-sharing operations.
+
+The utilization of both user type and bike type as attributes ensures that the predictions are tailored to different groups of users and the type of bikes they prefer, further enhancing the model's precision.
+
+This application uses Docker and Flask for the AWS deployment, Prefect for training orchestration, and MLflow for model registry.
+
 ## How to train and deploy the model on aws:
 * 1 Start mlflow for model and artifacts registry:
 
