@@ -76,8 +76,8 @@ def main_flow():
         df = pre_processing(df)
         X_train, train_data, X_test, test_data  = training_preparation(df)
 
-        train_data.to_parquet('model_monitoring/data/reference.parquet')
-        test_data.to_parquet('model_monitoring/data/current.parquet')
+        train_data.to_parquet('/model_monitoring/data/reference.parquet')
+        test_data.to_parquet('/model_monitoring/data/current.parquet')
 
         model = train(X_train,train_data['duration'])
         mlflow.sklearn.log_model(model, artifact_path='model')
