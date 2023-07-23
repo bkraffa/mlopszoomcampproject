@@ -23,6 +23,8 @@ This application uses Docker and Flask for the AWS deployment, Prefect for train
 
 * 2.3) prefect deployment run 'main-flow/trip_prediction'
 
+* 2.4) python orchestrate.py
+
 -Prefect UI will be running on: http://localhost:4200
 
 3) Build and run the docker image (aws access key id and secret id are neccessary) containing the prediction application:
