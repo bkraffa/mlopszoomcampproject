@@ -67,7 +67,7 @@ def calculate_mse(model,X_test,y_test):
 def main_flow():
     warnings.filterwarnings("ignore")    
 
-    TRACKING_SERVER_HOST = "ec2-18-188-25-201.us-east-2.compute.amazonaws.com" #change if ec2 instance is reinitiated
+    TRACKING_SERVER_HOST = "ec2-18-217-25-197.us-east-2.compute.amazonaws.com" #change if ec2 instance is reinitiated
     mlflow.set_tracking_uri(f"http://{TRACKING_SERVER_HOST}:5000")
     mlflow.set_experiment("chicago-bike-share")
 

@@ -13,6 +13,8 @@ This application uses Docker and Flask for the AWS deployment, Prefect for train
 
 * 1.1) mlflow server -h 0.0.0.0 -p 5000 --backend-store-uri postgresql://mlflow:flamengo@mlflow-database.cuownlz1peeo.us-east-2.rds.amazonaws.com:5432/mlflow_db --default-artifact-root s3://mlflow-models-bruno
 
+-MLFlow UI will be running on: :5000
+
 2) Start prefect for the orchestration deploy and then run the training orchestration using the deployment:
 
 * 2.1) prefect server start
@@ -20,6 +22,8 @@ This application uses Docker and Flask for the AWS deployment, Prefect for train
 * 2.2) prefect deploy -n trip_prediction
 
 * 2.3) prefect deployment run 'main-flow/trip_prediction'
+
+-Prefect UI will be running on: http://localhost:4200
 
 3) Build and run the docker image (aws access key id and secret id are neccessary) containing the prediction application:
 
@@ -30,3 +34,12 @@ This application uses Docker and Flask for the AWS deployment, Prefect for train
 4) Test the deployed app (to test the prediction running on aws, parameters can be edited on the hard coded ride dictionary on test_prediction.py):
 
 * 4.1) python test_prediction.py 
+
+5) Build the image for the model monitoring application:
+
+* 5.1) cd model_monitoring
+
+* 5.2) docker-compose up --build
+
+--Grafana will be running on: :3000
+--Adminer will be running on: :8080
