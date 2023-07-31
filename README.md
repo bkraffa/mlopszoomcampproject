@@ -16,7 +16,7 @@ This application uses Docker and Flask for the AWS deployment, Prefect for train
 
 * 1.1) mlflow server -h 0.0.0.0 -p 5000 --backend-store-uri postgresql://mlflow:flamengo@mlflow-database.cuownlz1peeo.us-east-2.rds.amazonaws.com:5432/mlflow_db --default-artifact-root s3://mlflow-models-bruno
 
--MLFlow UI will be running on: http://ec2-18-117-234-13.us-east-2.compute.amazonaws.com:5000
+-MLFlow UI is running on: http://ec2-18-117-234-13.us-east-2.compute.amazonaws.com:5000
 
 2) Start prefect for the orchestration deploy and then run the training orchestration using the deployment:
 
@@ -50,5 +50,5 @@ This application uses Docker and Flask for the AWS deployment, Prefect for train
 
 * 5.4) access http://ec2-18-117-234-13.us-east-2.compute.amazonaws.com:3000, login to grafana using admin/admin as credentials and build your dashboard using PostgreSQL table model_monitoring_metrics
 
---Grafana will be running on: http://ec2-18-117-234-13.us-east-2.compute.amazonaws.com:3000
---Adminer will be running on: http://ec2-18-117-234-13.us-east-2.compute.amazonaws.com:8080
+--Grafana runs on: http://ec2-18-117-234-13.us-east-2.compute.amazonaws.com:3000
+--Adminer runs on: http://ec2-18-117-234-13.us-east-2.compute.amazonaws.com:8080
