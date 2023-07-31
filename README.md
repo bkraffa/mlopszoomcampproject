@@ -1,14 +1,17 @@
 # mlops-zoomcamp-project Bruno Caraffa
 
-This application leverages data from over 3 million trips in Chicago's bike-sharing system to accurately predict trip durations. It achieves this by considering four essential attributes: the pickup station, dropoff station, user type (member or casual), and bike type (electric or classic).
+This application leverages data from over 5 million trips in Chicago's bike-sharing system to accurately predict trip durations. It achieves this by considering four essential attributes: the pickup station, dropoff station, user type (member or casual), and bike type (electric or classic).
 
 The vast dataset provides a robust foundation for the predictive model, allowing for accurate estimations of trip durations based on the specific combination of attributes. By analyzing historical trip patterns, the application can deliver reliable predictions to enhance the overall user experience and optimize bike-sharing operations.
 
 The utilization of both user type and bike type as attributes ensures that the predictions are tailored to different groups of users and the type of bikes they prefer, further enhancing the model's precision.
 
-This application uses Docker and Flask for the AWS deployment, Prefect for training orchestration, and MLflow for model registry.
+This application uses Docker and Flask for the AWS deployment, Prefect for training orchestration, MLflow for model registry and Grafana/Evidently for model monitoring.
 
 ## How to train and deploy the model on aws:
+0) Start the pipenv environment:
+* 0) pipenv shell
+
 1) Start mlflow for model and artifacts registry:
 
 * 1.1) mlflow server -h 0.0.0.0 -p 5000 --backend-store-uri postgresql://mlflow:flamengo@mlflow-database.cuownlz1peeo.us-east-2.rds.amazonaws.com:5432/mlflow_db --default-artifact-root s3://mlflow-models-bruno
@@ -37,11 +40,15 @@ This application uses Docker and Flask for the AWS deployment, Prefect for train
 
 * 4.1) python test_prediction.py 
 
-5) Build the image for the model monitoring application:
+5) Build the image for the model monitoring application and run the monitoring for the test data (march 2023):
 
 * 5.1) cd model_monitoring
 
 * 5.2) docker-compose up --build
+
+* 5.3) python evidently_metrics_calculation.py
+
+* 5.4) access :3000, login to grafana using admin/admin as credentials and build your dashboard using PostgreSQL table model_monitoring_metrics
 
 --Grafana will be running on: :3000
 --Adminer will be running on: :8080
