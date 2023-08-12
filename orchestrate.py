@@ -1,7 +1,6 @@
 #import s3fs
 import pandas as pd
 import mlflow
-import joblib
 from sklearn.feature_extraction import DictVectorizer
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import Ridge
@@ -32,23 +31,18 @@ def pre_processing(df):
 @task
 def training_preparation(df):
     categorical = ['rideable_type','member_casual','start_end_id']
-
     train_data = df.loc[df['started_at'] < '2023-03-01 00:00:00' ]
     test_data = df.loc[df['started_at'] > '2023-03-01 00:00:00' ]
-
-    dv = DictVectorizer()
-
+    dict_vectorizer = DictVectorizer()
     train_dicts = train_data[categorical].to_dict(orient='records')
-    X_train = dv.fit_transform(train_dicts)
+    x_train = dict_vectorizer.fit_transform(train_dicts)
     test_dicts = test_data[categorical].to_dict(orient='records')
-    X_test = dv.transform(test_dicts)
-
+    x_test = dict_vectorizer.transform(test_dicts)
     pathlib.Path('models').mkdir(exist_ok=True)
     with open('models/preprocessor.b', "wb") as f_out:
-            pickle.dump(dv,f_out)
+            pickle.dump(dict_vectorizer,f_out)
     mlflow.log_artifact('models/preprocessor.b',artifact_path="dv_preprocessor")
-
-    return X_train, train_data, X_test, test_data  
+    return x_train, train_data, x_test, test_data  
 
 @task()
 def train(X_train,y_train):
