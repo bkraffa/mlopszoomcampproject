@@ -18,4 +18,3 @@ repos:
         args: ["-rn", "-sn", "--recursive=y"]
     additional_dependencies:
     -  .
-    - flaky
