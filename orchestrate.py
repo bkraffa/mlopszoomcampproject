@@ -1,19 +1,19 @@
-#import s3fs
+import warnings
+import pathlib
+import pickle
 import pandas as pd
 import mlflow
 from sklearn.feature_extraction import DictVectorizer
-from sklearn.model_selection import train_test_split
 from sklearn.linear_model import Ridge
 from sklearn.metrics import mean_squared_error
 from prefect import flow, task
-import pathlib
-import pickle
-import warnings
+
+
 
 @task(retries = 3, retry_delay_seconds=2)
 def read_data(path):
-     df = pd.read_parquet(path)
-     return df
+    df = pd.read_parquet(path)
+    return df
 
 @task
 def pre_processing(df):
@@ -40,9 +40,9 @@ def training_preparation(df):
     x_test = dict_vectorizer.transform(test_dicts)
     pathlib.Path('models').mkdir(exist_ok=True)
     with open('models/preprocessor.b', "wb") as f_out:
-            pickle.dump(dict_vectorizer,f_out)
+        pickle.dump(dict_vectorizer,f_out)
     mlflow.log_artifact('models/preprocessor.b',artifact_path="dv_preprocessor")
-    return x_train, train_data, x_test, test_data  
+    return x_train, train_data, x_test, test_data
 
 @task()
 def train(X_train,y_train):
@@ -59,8 +59,7 @@ def calculate_mse(model,X_test,y_test):
 
 @flow
 def main_flow():
-    warnings.filterwarnings("ignore")    
-
+    warnings.filterwarnings("ignore")
     TRACKING_SERVER_HOST = "ec2-18-117-234-13.us-east-2.compute.amazonaws.com" #change if ec2 instance is reinitiated
     mlflow.set_tracking_uri(f"http://{TRACKING_SERVER_HOST}:5000")
     mlflow.set_experiment("chicago-bike-share")
@@ -69,15 +68,13 @@ def main_flow():
         df = read_data('s3://chicago-bike-trips/dataset.parquet')
         df = pre_processing(df)
         X_train, train_data, X_test, test_data  = training_preparation(df)
-        
         pathlib.Path('model_monitoring/data').mkdir(exist_ok=True)
         train_data.to_parquet('model_monitoring/data/reference.parquet')
         test_data.to_parquet('model_monitoring/data/current.parquet')
-
         model = train(X_train,train_data['duration'])
         mlflow.sklearn.log_model(model, artifact_path='model')
         train_rmse = calculate_mse(model,X_train,train_data['duration'])
-        mlflow.log_metric("train_rmse", train_rmse)        
+        mlflow.log_metric("train_rmse", train_rmse)
         test_rmse = calculate_mse(model,X_test,test_data['duration'])
         mlflow.log_metric("test_rmse", test_rmse)
     mlflow.end_run()

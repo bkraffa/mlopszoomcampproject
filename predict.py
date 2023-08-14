@@ -3,8 +3,8 @@ import mlflow
 from flask import Flask, request, jsonify
 
 
-logged_model = 's3://mlflow-models-bruno/1/1485ca1c181a45e1afa6a4d265225bb2/artifacts/model'
-model = mlflow.pyfunc.load_model(logged_model)
+LOGGED_MODEL = 's3://mlflow-models-bruno/1/1485ca1c181a45e1afa6a4d265225bb2/artifacts/model'
+model = mlflow.pyfunc.load_model(LOGGED_MODEL)
 
 with open ('models/preprocessor.b', 'rb') as file:
     dv = pickle.load(file)

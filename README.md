@@ -52,3 +52,6 @@ This application uses Docker and Flask for the AWS deployment, Prefect for train
 
 --Grafana runs on: http://ec2-18-117-234-13.us-east-2.compute.amazonaws.com:3000
 --Adminer runs on: http://ec2-18-117-234-13.us-east-2.compute.amazonaws.com:8080
+
+Pylint grade:
+![alt text](https://i.ibb.co/WvdvbDd/mlops1.png)
