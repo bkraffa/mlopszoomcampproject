@@ -53,26 +53,26 @@ This application uses Docker and Flask for the AWS deployment, Prefect for train
 --Grafana runs on: http://ec2-18-117-234-13.us-east-2.compute.amazonaws.com:3000
 --Adminer runs on: http://ec2-18-117-234-13.us-east-2.compute.amazonaws.com:8080
 
-MLFlow UI:
+MLFlow UI:  
 ![alt text](https://i.ibb.co/rkRytYy/mlops2.png)
 
-Prefect UI:
+Prefect UI:  
 ![alt text](https://i.ibb.co/FhRdNN5/mlops3.png)
 
-Docker Containers:
+Docker Containers:  
 ![alt text](https://i.ibb.co/bH7q03C/mlops4.png)
 
-Model deployed on the AWS:
+Model deployed on the AWS:  
 ![alt text](https://i.ibb.co/fSz1dWZ/mlops5.png)
 
-Adminer Database:
+Adminer Database:  
 ![alt text](https://i.ibb.co/mvhjS37/mlops7.pngg)
 
-Model monitoring dashboard on Grafana:
+Model monitoring dashboard on Grafana:  
 ![alt text](https://i.ibb.co/6s4ZtZX/mlops6.png)
 
-Pylint grade:
+Pylint grade:  
 ![alt text](https://i.ibb.co/WvdvbDd/mlops1.png)
 
-Unit test:
+Unit test:  
 ![alt text](https://i.ibb.co/sFwtd14/mlops8.png)
